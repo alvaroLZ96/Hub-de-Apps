@@ -1,0 +1,8 @@
+button{
+    background-color: transparent;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px black ;
+}

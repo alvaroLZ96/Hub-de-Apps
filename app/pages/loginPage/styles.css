@@ -1,0 +1,26 @@
+#divLogin{
+    display: flex;
+    flex-wrap: wrap;
+height: 50vh;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+h1{
+    font-family: 'Silkscreen', cursive;;
+display:flex;
+justify-content: center;
+align-items: center; 
+width:12rem;
+text-align: center;
+
+}
+input{
+    width: 20%;
+    background-image: url("https://media0.giphy.com/headers/anthonyantonellis/SqsFmi8lZMtI.gif");
+}
+
+label{
+font-family:'Silkscreen', cursive;
+}

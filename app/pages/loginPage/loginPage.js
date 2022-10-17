@@ -8,7 +8,7 @@ export const loginStorage = () => {
 
 <h1>Neoland Hub-Games</h1>
 <label for= "inputName">Introduce tu nombre</label>
-<input type="text" id="inputName" required/>
+<input type="text" id="inputName" required pattern="[A-Za-z]" title="Introduce tu nombre"> 
 <button id="saveBtn">👍🏽</button>`;
 
   const saveLocalName = (value) => {
@@ -16,6 +16,7 @@ export const loginStorage = () => {
     if (typeof value !== "string") {
       // no está funcionaodo esta condición y si escribo números tbn me deja entrar
       //y tbn me preocupa no saber como conseguir quitar el mensaje de acceso denegado que cada vez que le doy al button se vuelve a pintar
+      //arriba en el template he probado a meterlo tbn por expresión regular
       const notWelcome = document.createElement("p");
       notWelcome.innerText = "";
       notWelcome.innerText = `"${value}" is not a valid name`;

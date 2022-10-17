@@ -1,4 +1,5 @@
 import "./styles.css";
+import { MenuPage } from "../menuPage/menuPage";
 export const loginStorage = () => {
   const divLogin = document.createElement("div");
   divLogin.setAttribute("id", "divLogin");
@@ -8,11 +9,24 @@ export const loginStorage = () => {
 <h1>Neoland Hub-Games</h1>
 <label for= "inputName">Introduce tu nombre</label>
 <input type="text" id="inputName" required/>
-<button id="saveBtn">👍🏾</button>`;
+<button id="saveBtn">👍🏽</button>`;
 
   const saveLocalName = (value) => {
     localStorage.setItem("name", value);
-    //funcion que nos rediriga a la pagina
+    if (typeof value !== "string") {
+      // no está funcionaodo esta condición y si escribo números tbn me deja entrar
+      const notWelcome = document.createElement("p");
+      notWelcome.innerText = "";
+      notWelcome.innerText = `"${value}" is not a valid name`;
+      divLogin.appendChild(notWelcome);
+    } else if (value.length < 2) {
+      const tooShort = document.createElement("p");
+      tooShort.innerText = "";
+      tooShort.innerText += `${value} is not a valid name`;
+      divLogin.appendChild(tooShort);
+    } else {
+      MenuPage(value);
+    }
   };
   const input = document.querySelector("input");
   saveBtn.addEventListener("click", () => saveLocalName(input.value));
@@ -45,7 +59,6 @@ recuperarDatos(); */
     if (input.value.length <= 0) {
       alert('Your name must have at least 1 character')
     } else {
-
       const usersList = await getData('users')
       const findUser = usersList.findIndex((user) => user.name === input.value)
       if (findUser < 0) {
@@ -57,4 +70,5 @@ recuperarDatos(); */
       }
     }
   })
+ 
  */

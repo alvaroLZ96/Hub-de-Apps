@@ -5,7 +5,7 @@ height: 50vh;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-
+margin:1rem;
 }
 h1{
     font-family: 'Silkscreen', cursive;;
@@ -23,4 +23,5 @@ input{
 
 label{
 font-family:'Silkscreen', cursive;
+margin-bottom: 10px;
 }

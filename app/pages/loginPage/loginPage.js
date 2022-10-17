@@ -1,15 +1,20 @@
 import "./styles.css";
 import { MenuPage } from "../menuPage/menuPage";
+import { cleanPage } from "../../utils/cleanPage";
+
 export const loginStorage = () => {
   const divLogin = document.createElement("div");
   divLogin.setAttribute("id", "divLogin");
-  document.body.appendChild(divLogin);
+  const app = document.querySelector("#app");
+  app.appendChild(divLogin);
   divLogin.innerHTML = ` 
 
 <h1>Neoland Hub-Games</h1>
+<form>
 <label for= "inputName">Introduce tu nombre</label>
-<input type="text" id="inputName" required pattern="[A-Za-z]" title="Introduce tu nombre"> 
-<button id="saveBtn">👍🏽</button>`;
+<input type="text" id="inputName" required="required" pattern="[A-Za-z]" title="Introduce tu nombre. No está permitido el uso de números"> 
+<button id="saveBtn">👍🏽</button>
+</form>`;
 
   const saveLocalName = (value) => {
     localStorage.setItem("name", value);
@@ -27,6 +32,7 @@ export const loginStorage = () => {
       tooShort.innerText += `${value} is not a valid name`;
       divLogin.appendChild(tooShort);
     } else {
+      cleanPage(divLogin);
       MenuPage(value);
     }
   };

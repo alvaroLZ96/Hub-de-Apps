@@ -1,0 +1,47 @@
+ .menu{
+height: 100vh;
+width: 100vw;
+grid-gap:3rem;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns:  300px 300px ;
+grid-template-rows:
+300px
+300px
+300px;
+grid-template-areas: 
+"pokeApi . "
+". ."
+". .";
+
+;
+}
+.hola{
+    background-color: brown;
+}
+ .pokeapi{
+grid-area: pokeApi;
+background-color: greenyellow;
+  
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 3px 3px 3px black ;
+ 
+} 
+.pokeapi:hover{
+background-image: url("https://down.imgspng.com/download/0720/pokemon_logo_PNG12.png");
+background-size:80% cover;
+background-position:center;
+background-repeat: no-repeat;
+font-size: xx-large;
+font-weight: 800;
+
+
+
+
+}

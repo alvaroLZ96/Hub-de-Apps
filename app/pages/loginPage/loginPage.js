@@ -1,5 +1,5 @@
 import "./styles.css";
-import { MenuPage } from "../menuPage/menuPage";
+import { menuPage } from "../menuPage/menuPage";
 import { cleanPage } from "../../utils/cleanPage";
 
 export const loginStorage = () => {
@@ -9,16 +9,40 @@ export const loginStorage = () => {
   app.appendChild(divLogin);
   divLogin.innerHTML = ` 
 
-<h1>Neoland Hub-Games</h1>
-<form>
-<label for= "inputName">Introduce tu nombre</label>
-<input type="text" id="inputName" required="required" pattern="[A-Za-z]" title="Introduce tu nombre. No está permitido el uso de números"> 
-<button id="saveBtn">👍🏽</button>
-</form>`;
+  <h1>Neoland Hub-Games</h1>
+  <form>
+  <label for= "inputName">Introduce tu nombre</label>
+  <input type="text" id="inputName" required pattern="[A-Za-z]+" minlength="2" title="Introduce tu nombre. No está permitido el uso de números">
+  <span class="error"></span>
+  <button type="button" id="saveBtn">👍🏽</button>
+  </form>`;
 
-  const saveLocalName = (value) => {
+  const saveLocalName = () => {
+    const input = document.querySelector("input");
+    const errorText = document.querySelector(".error");
+    console.log("validity", input.validity);
+    if (!input.validity.valid) {
+      if (input.validity.tooShort) {
+        errorText.textContent =
+          "Tu nombre debería contener al menos 2 caracteres";
+      } else if (input.validity.valueMissing) {
+        errorText.textContent = "Debes introducir tu nombre";
+      } else {
+        errorText.textContent = "Tu nombre solo debe contener letras";
+      }
+    } else {
+      errorText.textContent = "";
+      localStorage.setItem("name", input.value);
+
+      menuPage();
+    }
+  };
+  saveBtn.addEventListener("click", () => saveLocalName());
+};
+
+/* const saveLocalName = (value) => {
     localStorage.setItem("name", value);
-    if (typeof value !== "string") {
+    /* if (typeof value !== "string") {
       // no está funcionaodo esta condición y si escribo números tbn me deja entrar
       //y tbn me preocupa no saber como conseguir quitar el mensaje de acceso denegado que cada vez que le doy al button se vuelve a pintar
       //arriba en el template he probado a meterlo tbn por expresión regular
@@ -31,14 +55,14 @@ export const loginStorage = () => {
       tooShort.innerText = "";
       tooShort.innerText += `${value} is not a valid name`;
       divLogin.appendChild(tooShort);
-    } else {
+    } else { 
       cleanPage(divLogin);
       MenuPage(value);
     }
   };
   const input = document.querySelector("input");
   saveBtn.addEventListener("click", () => saveLocalName(input.value));
-};
+};  
 
 /* showBtn.addEventListener("click", () => showLocalName()); */
 

@@ -1,4 +1,5 @@
 import "./style.css";
+import { pokemon } from "../PokemonPage/pokemonPage";
 import { cleanPage } from "../../utils/cleanPage";
 export const menuPage = () => {
   /* const divLogin = document.createElement("div");
@@ -10,7 +11,9 @@ export const menuPage = () => {
   app.innerHTML = `
   <p class="hola">Hola ${localStorage.name}!✋</p> 
   <div class="menu">
-  <div class="pokeapi">PokeApi</div>
+    <button class="pokeapi">PokeApi</button>
   </div>
   `;
+  const pokeDiv = document.querySelector(".pokeapi");
+  pokeDiv.addEventListener("click", () => pokemon());
 };

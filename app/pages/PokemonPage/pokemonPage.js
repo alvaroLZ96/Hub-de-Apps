@@ -43,16 +43,15 @@ export const pokemon = () => {
     pokemonNav.classList.add("pokemonNav");
     pokemonNav.innerHTML = `
       <h1 class="pokemon-title">Bienvenido al Mundo Pokemon ${localStorage.name}!</h1>
-      <img class="pokemon-title">foto pokemon</img>
-      <input type="text" class="searchbar">soy un searchbar</input>
+      <img src="https://orig00.deviantart.net/aa74/f/2012/201/9/e/chibi_squirtle_by_o_melet-d580ex7.png" class="pokemon-img"></img>
+      <input type="text" class="searchbar"></input>
       <button>filtro 1</button>
       <button>filtro 2</button>
     `;
-
+    const pokeCards = document.createElement("div");
+    pokeCards.classList.add("pokemons");
+    app.appendChild(pokeCards);
     for (const pokemon of list) {
-      const pokeCards = document.createElement("div");
-      pokeCards.classList.add("pokemons");
-      app.appendChild(pokeCards);
       const pokeDiv = document.createElement("div");
       pokeCards.appendChild(pokeDiv);
       pokeDiv.innerHTML += `

@@ -1,10 +1,12 @@
 import { cleanPage } from "../../utils/cleanPage";
+import "./style.css";
 
 export const pokemon = () => {
   const app = document.querySelector("#app");
   cleanPage(app);
-  let pokemonArray = [];
+
   const getPokemon = async () => {
+    let pokemonArray = [];
     for (let i = 1; i < 151; i++) {
       try {
         const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
@@ -22,14 +24,43 @@ export const pokemon = () => {
       id: item.id,
       name: item.name,
       expererience: item.base_experience,
-      height: item.height,
+      height: item.height, //filtro por altura
       weight: item.weight,
       type: item.types[0].type.name,
       image: item.sprites.other.dream_world.front_default,
       image2: item.sprites.other.home.front_default,
-      image3: item.sprites.other["official-artwork"].front_default,
+      imageArtwork: item.sprites.other["official-artwork"].front_default,
     }));
-    console.log(mappedPokemons);
+    printPokemon(mappedPokemons); //printPokemon(mappedPokemons);
+  };
+
+  const printPokemon = (list) => {
+    const app = document.querySelector("#app");
+    cleanPage(app);
+
+    const pokemonNav = document.createElement("div");
+    app.appendChild(pokemonNav);
+    pokemonNav.classList.add("pokemonNav");
+    pokemonNav.innerHTML = `
+      <h1 class="pokemon-title">Bienvenido al Mundo Pokemon ${localStorage.name}!</h1>
+      <img class="pokemon-title">foto pokemon</img>
+      <input type="text" class="searchbar">soy un searchbar</input>
+      <button>filtro 1</button>
+      <button>filtro 2</button>
+    `;
+
+    for (const pokemon of list) {
+      const pokeCards = document.createElement("div");
+      pokeCards.classList.add("pokemons");
+      app.appendChild(pokeCards);
+      const pokeDiv = document.createElement("div");
+      pokeCards.appendChild(pokeDiv);
+      pokeDiv.innerHTML += `
+    <h2>${pokemon.name}</h2>
+    <img src=${pokemon.imageArtwork} alt=${pokemon.name}/>
+    <h3>Experiencia base: ${pokemon.expererience}</h3>
+    `;
+    }
   };
   getPokemon();
 };

@@ -31,7 +31,7 @@ export const pokemon = () => {
       image2: item.sprites.other.home.front_default,
       imageArtwork: item.sprites.other["official-artwork"].front_default,
     }));
-    printPokemon(mappedPokemons); //printPokemon(mappedPokemons);
+    printPokemon(mappedPokemons);
   };
 
   const printPokemon = (list) => {
@@ -61,5 +61,6 @@ export const pokemon = () => {
     `;
     }
   };
+
   getPokemon();
 };

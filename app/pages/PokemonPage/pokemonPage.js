@@ -49,16 +49,11 @@ export const pokemon = () => {
       imageArtwork: item.sprites.other["official-artwork"].front_default,
     }));
     printPokemon(mappedPokemons, "");
+    console.log(mappedPokemons);
   };
 
-  const printPokemon = (list, word) => {
-    cleanPage(pokeCards);
-    const filteredPokemons = list.filter(
-      (item) =>
-        item.name.toLowerCase().includes(word.toLowerCase()) || item.id == word
-    );
-
-    for (const pokemon of filteredPokemons) {
+  const printPokemon = (list) => {
+    for (const pokemon of list) {
       const pokeDiv = document.createElement("div");
       pokeDiv.classList.add(`${pokemon.type}`);
       pokeCards.appendChild(pokeDiv);
@@ -70,35 +65,51 @@ export const pokemon = () => {
       pokeDiv.addEventListener("click", () => callPokemonCard(pokemon));
     }
   };
+  //FUNCIÓN PARA EL INPUT DE AVERAGE
+  const averageFunction = (mappedPokemons) => {
+    cleanPage(pokeCards);
+    const averagePokemons = (mappedPokemons) => {
+      console.log(mappedPokemons);
+      let suma = 0;
+      for (let element of mappedPokemons) {
+        suma += element.height;
+      }
+      return suma / mappedPokemons.length;
+    };
+    let average = averagePokemons(mappedPokemons);
 
-  const averagePokemons = (mappedPokemons) => {
-    let suma = 0;
-    for (let element of mappedPokemons) {
-      suma += element.height;
-    }
-    return suma / mappedPokemons.length;
+    const printAverage = (mappedPokemons) => {
+      const mappedAverage = mappedPokemons.filter((pokemon) => {
+        pokemon.height > average;
+      });
+      console.log(mappedAverage);
+      printPokemon(mappedAverage);
+    };
+    printAverage();
   };
-  let average = averagePokemons(mappedPokemons);
-  console.log(average);
-  const printAverage = (mappedPokemons) => {
-    const mappedAverage = mappedPokemons.filter(
-      (pokemon) => pokemon.height > average
+  //FUNCIÓN PARA EL INPUT DE SEARCH
+  const searchFunction = (list, word) => {
+    cleanPage(pokeCards);
+    const filteredPokemons = list.filter(
+      (item) =>
+        item.name.toLowerCase().includes(word.toLowerCase()) || item.id == word
     );
-    printPokemon(mappedAverage);
+    printPokemon(filteredPokemons);
   };
 
-  const filter1 = document.querySelector(".filter1");
-  filter1.addEventListener("click", () => printAverage(mappedPokemons));
-
-  /*   const searchInput = document.querySelector(".searchbar");
+  /*  const searchInput = document.querySelector(".searchbar");
   searchInput.addEventListener("input", (ev) =>
-    printPokemon(mappedPokemons, ev.target.value)
- */
+    printPokemon(mappedPokemons, ev.target.value) */
+
   const inputSearch = document.querySelector(".searchBtn");
   inputSearch.addEventListener("click", () => {
     const searchInput = document.querySelector(".searchbar");
-    printPokemon(searchInput.value);
-  }); //cada vez que hago el input vuelvo a pintar los jugadores pero lo hace por el valor del input
+    console.log(mappedPokemons);
+    searchFunction(mappedPokemons, searchInput.value);
+  });
+  const filter1 = document.querySelector(".filter1");
+  console.log(mappedPokemons);
+  filter1.addEventListener("click", () => averageFunction(mappedPokemons));
 
   getPokemon();
 };

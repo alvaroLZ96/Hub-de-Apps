@@ -38,8 +38,8 @@ font-family: 'Baloo 2', cursive;;
     text-transform: capitalize
 }
 .pokemons > div > img{
-    max-height: 40%;
-    max-width: 40%;
+    max-height: 60%;
+    max-width: 60%;
 }
 .pokemonNav{
     display: flex;

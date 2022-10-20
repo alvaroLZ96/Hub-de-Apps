@@ -1,0 +1,14 @@
+.pokemonCardDiv{
+background-color: rgba(255, 215, 215, 0.548);
+border-radius: 10% ;
+text-align: center;
+text-transform: capitalize; 
+}
+.pokemonCardDiv>h2{
+    background-color: rgba(250, 235, 215, 0.514);
+width: 50%;
+margin-left:25%;
+}
+.pokemonCardDiv> img{
+background-color:
+}

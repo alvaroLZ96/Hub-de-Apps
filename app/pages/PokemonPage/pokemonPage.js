@@ -14,6 +14,7 @@ export const pokemon = () => {
     <h1 class="pokemon-title">Bienvenido al Mundo Pokemon ${localStorage.name}!</h1>
     <img src="https://orig00.deviantart.net/aa74/f/2012/201/9/e/chibi_squirtle_by_o_melet-d580ex7.png" class="pokemon-img"></img>
     <input type="text" class="searchbar"></input>
+    <input type="submit" class= "searchBtn">
     <button class="filter1" >Grandes</button>
     <button class="filter2" >Pequeños</button>
   `;
@@ -48,29 +49,6 @@ export const pokemon = () => {
       imageArtwork: item.sprites.other["official-artwork"].front_default,
     }));
     printPokemon(mappedPokemons, "");
-    /* 
-    const averagePokemons = (mappedPokemons) => {
-      let suma = 0;
-      for (let element of mappedPokemons) {
-        suma += element.height;
-      }
-      return suma / mappedPokemons.length;
-    };
-    let average = averagePokemons(mappedPokemons);
-    console.log(average);
- */
-    /* const filter1 =document.querySelector(".filter1");
-filter1.addEventListener("click", ()=>{ 
-  if(item.height>average){
-    const bigDiv =document.createElement("div");
-    document.body.appendChild(bigDiv);
-    cleanPage(app);
-    bigDiv.innerHTML+=item;
-  }
-  
-  
-  }
-*/
   };
 
   const printPokemon = (list, word) => {
@@ -87,14 +65,40 @@ filter1.addEventListener("click", ()=>{
       pokeDiv.innerHTML += `
       <h2>${pokemon.name}</h2>
       <img src=${pokemon.imageArtwork} alt=${pokemon.name}/>
-      <h3>Experiencia base: ${pokemon.experience}</h3>
+      
       `;
       pokeDiv.addEventListener("click", () => callPokemonCard(pokemon));
     }
   };
-  const searchInput = document.querySelector(".searchbar");
+
+  const averagePokemons = (mappedPokemons) => {
+    let suma = 0;
+    for (let element of mappedPokemons) {
+      suma += element.height;
+    }
+    return suma / mappedPokemons.length;
+  };
+  let average = averagePokemons(mappedPokemons);
+  console.log(average);
+  const printAverage = (mappedPokemons) => {
+    const mappedAverage = mappedPokemons.filter(
+      (pokemon) => pokemon.height > average
+    );
+    printPokemon(mappedAverage);
+  };
+
+  const filter1 = document.querySelector(".filter1");
+  filter1.addEventListener("click", () => printAverage(mappedPokemons));
+
+  /*   const searchInput = document.querySelector(".searchbar");
   searchInput.addEventListener("input", (ev) =>
     printPokemon(mappedPokemons, ev.target.value)
-  ); //cada vez que hago el input vuelvo a pintar los jugadores pero lo hace por el valor del input
+ */
+  const inputSearch = document.querySelector(".searchBtn");
+  inputSearch.addEventListener("click", () => {
+    const searchInput = document.querySelector(".searchbar");
+    printPokemon(searchInput.value);
+  }); //cada vez que hago el input vuelvo a pintar los jugadores pero lo hace por el valor del input
+
   getPokemon();
 };

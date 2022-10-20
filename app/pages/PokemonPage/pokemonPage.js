@@ -39,7 +39,7 @@ export const pokemon = () => {
       id: item.id,
       name: item.name,
       experience: item.base_experience,
-      height: item.height, //filtro por altura
+      height: item.height,
       weight: item.weight,
       type: item.types[0].type.name,
       image: item.sprites.other.dream_world.front_default,
@@ -51,17 +51,14 @@ export const pokemon = () => {
 
   const printPokemon = (list, word) => {
     cleanPage(pokeCards);
-    const filteredPokemons = list.filter((item) => {
-      if (
-        item.name.toLowerCase().includes(word.toLowerCase()) ||
-        item.experience.toLowerCase().includes(word.toLowerCase()) //preguntar como poner en número
-      ) {
-        return true;
-      }
-    });
+    const filteredPokemons = list.filter(
+      (item) =>
+        item.name.toLowerCase().includes(word.toLowerCase()) || item.id == word
+    );
 
     for (const pokemon of filteredPokemons) {
       const pokeDiv = document.createElement("div");
+      pokeDiv.classList.add(`${pokemon.type}`);
       pokeCards.appendChild(pokeDiv);
       pokeDiv.innerHTML += `
       <h2>${pokemon.name}</h2>

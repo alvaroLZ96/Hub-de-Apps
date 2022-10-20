@@ -1,4 +1,5 @@
 import { cleanPage } from "../../utils/cleanPage";
+import { callPokemonCard } from "../../components/pokeCard/pokeCard";
 import "./style.css";
 
 let mappedPokemons;
@@ -13,8 +14,8 @@ export const pokemon = () => {
     <h1 class="pokemon-title">Bienvenido al Mundo Pokemon ${localStorage.name}!</h1>
     <img src="https://orig00.deviantart.net/aa74/f/2012/201/9/e/chibi_squirtle_by_o_melet-d580ex7.png" class="pokemon-img"></img>
     <input type="text" class="searchbar"></input>
-    <button class="filter1" >filtro 1</button>
-    <button class="filter2" >filtro 2</button>
+    <button class="filter1" >Grandes</button>
+    <button class="filter2" >Pequeños</button>
   `;
   const pokeCards = document.createElement("div");
   pokeCards.classList.add("pokemons");
@@ -28,7 +29,7 @@ export const pokemon = () => {
         const dataJSON = await data.json();
         pokemonArray.push(dataJSON);
       } catch (error) {
-        console.log("Error:", error);
+        console.log("Error:");
       }
     }
     transformData(pokemonArray);
@@ -39,14 +40,37 @@ export const pokemon = () => {
       id: item.id,
       name: item.name,
       experience: item.base_experience,
-      height: item.height,
-      weight: item.weight,
+      height: item.height / 10,
+      weight: item.weight / 10,
       type: item.types[0].type.name,
       image: item.sprites.other.dream_world.front_default,
       image2: item.sprites.other.home.front_default,
       imageArtwork: item.sprites.other["official-artwork"].front_default,
     }));
     printPokemon(mappedPokemons, "");
+    /* 
+    const averagePokemons = (mappedPokemons) => {
+      let suma = 0;
+      for (let element of mappedPokemons) {
+        suma += element.height;
+      }
+      return suma / mappedPokemons.length;
+    };
+    let average = averagePokemons(mappedPokemons);
+    console.log(average);
+ */
+    /* const filter1 =document.querySelector(".filter1");
+filter1.addEventListener("click", ()=>{ 
+  if(item.height>average){
+    const bigDiv =document.createElement("div");
+    document.body.appendChild(bigDiv);
+    cleanPage(app);
+    bigDiv.innerHTML+=item;
+  }
+  
+  
+  }
+*/
   };
 
   const printPokemon = (list, word) => {
@@ -65,16 +89,12 @@ export const pokemon = () => {
       <img src=${pokemon.imageArtwork} alt=${pokemon.name}/>
       <h3>Experiencia base: ${pokemon.experience}</h3>
       `;
+      pokeDiv.addEventListener("click", () => callPokemonCard(pokemon));
     }
   };
   const searchInput = document.querySelector(".searchbar");
-  searchInput.addEventListener(
-    "input",
-    (ev) => printPokemon(mappedPokemons, ev.target.value) //cada vez que hago el input vuelvo a pintar los jugadores pero lo hace por el valor del input
-  );
-  /* const filter1 =document.querySelector(".filter1");
-filter1.addEventListener("click", )
- */
-
+  searchInput.addEventListener("input", (ev) =>
+    printPokemon(mappedPokemons, ev.target.value)
+  ); //cada vez que hago el input vuelvo a pintar los jugadores pero lo hace por el valor del input
   getPokemon();
 };

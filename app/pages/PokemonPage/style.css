@@ -22,7 +22,7 @@ font-family: 'Baloo 2', cursive;;
     width: 13rem;
     height: 15rem;
     border-radius: 10%;
-    background-color: rgba(236, 236, 236, 0.774);
+  /* background-color: rgba(236, 236, 236, 0.774);  */
     box-shadow: 0 0.8em 0.8em -0.4em black;
     color:black;
     transition: all 0.4s ease-in-out;
@@ -34,7 +34,7 @@ font-family: 'Baloo 2', cursive;;
 .pokemons > div >h2{
     width:100%;
     text-align: center;
-    background-color: rgba(0, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.37);
     text-transform: capitalize
 }
 .pokemons > div > img{
@@ -48,7 +48,6 @@ font-family: 'Baloo 2', cursive;;
     flex-wrap: wrap;
     max-height: 20rem;
     font-family: 'Baloo 2', cursive;
-    
     
 }
 .pokemon-title{
@@ -99,4 +98,93 @@ display: inline-flex;
    }
 .pokemon-img{
    height: 12rem;
+}
+
+.normal {
+    background-color: #d4b081;
+    border: 8px solid #6D6D4E;
+}
+
+.fire {
+    background-color: #fcb480;
+    border: 8px solid #9C531F;
+}
+
+.water {
+    background-color: #93b3fd;
+    border: 8px solid #445E9C;
+}
+
+.electric {
+    background-color: #ffde59;
+    border: 8px solid #A1871F;
+}
+
+.grass {
+    background-color: #a5ff77;
+    border: 8px solid #4E8234;
+}
+
+.ice {
+    background-color: #b0ffff;
+    border: 8px solid #638D8D;
+}
+
+.ground {
+    background-color: #ffdf89;
+    border: 8px solid #927D44;
+}
+
+.flying {
+    background-color: #bfa9ff;
+    border: 8px solid #6D5E9C;
+}
+
+.ghost {
+    background-color: #aa92cf;
+    border: 8px solid #493963;
+}
+
+.rock {
+    background-color: #f7de70;
+    border: 8px solid #786824;
+}
+
+.fighting {
+    background-color: #ff645c;
+    border: 8px solid #7D1F1A;
+}
+
+.poison {
+    background-color: #df78df;
+    border: 8px solid #682A68;
+}
+
+.psychic {
+    background-color: #d3708e;
+    border: 8px solid #5e1e31;
+}
+
+.bug {
+    background-color: #e7f850;
+    border: 8px solid #6D7815;
+}
+
+.dark {
+    background-color: #a88b77;
+    border: 8px solid #49392F;
+}
+
+.steel {
+    background-color: #c8c8d1;
+    border: 8px solid #787887;
+}
+
+.dragon {
+    background-color: #8b59ff;
+    border: 8px solid #4924A1;
+}
+.fairy {
+    background-color: #f7729a;
+    border: 8px solid #A13959;
 }

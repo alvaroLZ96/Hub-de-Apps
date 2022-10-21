@@ -14,7 +14,7 @@ export const pokemon = () => {
     <h1 class="pokemon-title">Bienvenido al Mundo Pokemon ${localStorage.name}!</h1>
     <img src="https://orig00.deviantart.net/aa74/f/2012/201/9/e/chibi_squirtle_by_o_melet-d580ex7.png" class="pokemon-img"></img>
     <input type="text" class="searchbar"></input>
-    <input type="submit" class= "searchBtn">
+    <input type="submit" value="🔎" class= "searchBtn">
     <button class="filter1" >Grandes</button>
     <button class="filter2" >Pequeños</button>
   `;
@@ -66,10 +66,10 @@ export const pokemon = () => {
     }
   };
   //FUNCIÓN PARA EL INPUT DE AVERAGE
-  const averageFunction = (mappedPokemons) => {
+  const bigFunction = (mappedPokemons) => {
     cleanPage(pokeCards);
     const averagePokemons = (mappedPokemons) => {
-      console.log(mappedPokemons);
+      console.log("mapped:", mappedPokemons);
       let suma = 0;
       for (let element of mappedPokemons) {
         suma += element.height;
@@ -77,15 +77,31 @@ export const pokemon = () => {
       return suma / mappedPokemons.length;
     };
     let average = averagePokemons(mappedPokemons);
+    console.log(average);
+    const mappedBigAverage = mappedPokemons.filter(
+      (pokemon) => pokemon.height > average
+    );
+    printPokemon(mappedBigAverage);
+  };
 
-    const printAverage = (mappedPokemons) => {
-      const mappedAverage = mappedPokemons.filter((pokemon) => {
-        pokemon.height > average;
-      });
-      console.log(mappedAverage);
-      printPokemon(mappedAverage);
+  //FUNCIÓN PARA EL INPUT DE AVERAGE
+  const smallFunction = (mappedPokemons) => {
+    cleanPage(pokeCards);
+    const averagePokemons = (mappedPokemons) => {
+      console.log("mapped:", mappedPokemons);
+      let suma = 0;
+      for (let element of mappedPokemons) {
+        suma += element.height;
+      }
+      return suma / mappedPokemons.length;
     };
-    printAverage();
+    let average = averagePokemons(mappedPokemons);
+    console.log(average);
+    const mappedSmallAverage = mappedPokemons.filter(
+      (pokemon) => pokemon.height < average
+    );
+    console.log(mappedSmallAverage);
+    printPokemon(mappedSmallAverage);
   };
   //FUNCIÓN PARA EL INPUT DE SEARCH
   const searchFunction = (list, word) => {
@@ -108,8 +124,10 @@ export const pokemon = () => {
     searchFunction(mappedPokemons, searchInput.value);
   });
   const filter1 = document.querySelector(".filter1");
-  console.log(mappedPokemons);
-  filter1.addEventListener("click", () => averageFunction(mappedPokemons));
+  filter1.addEventListener("click", () => bigFunction(mappedPokemons));
+
+  const filter2 = document.querySelector(".filter2");
+  filter2.addEventListener("click", () => smallFunction(mappedPokemons));
 
   getPokemon();
 };

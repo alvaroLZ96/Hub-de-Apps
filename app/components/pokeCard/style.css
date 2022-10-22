@@ -1,14 +1,44 @@
+.pokeBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+
+}
+
 .pokemonCardDiv{
 background-color: rgba(255, 215, 215, 0.548);
+background-image: url("https://res.cloudinary.com/ddtufnl04/image/upload/v1666459410/pngegg_jhe3my.png");
+background-repeat: no-repeat;
+background-size: cover;
 border-radius: 10% ;
 text-align: center;
 text-transform: capitalize; 
+width: 480px;
+height: 670px;
+
 }
-.pokemonCardDiv>h2{
+.box2 h2{
     background-color: rgba(250, 235, 215, 0.514);
-width: 50%;
-margin-left:25%;
+    width: 50%;
+    margin-left:25%;
+
 }
-.pokemonCardDiv> img{
-background-color:
+.box1{
+    height: 50%;
+    position: relative;
+
+}
+.box2{
+    height: 50%;
+}
+.poke-img{
+    height: 65%;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }

@@ -4,3 +4,7 @@
 /* font-family: 'Baloo 2', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 /* font-family: 'Satisfy', cursive; */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}

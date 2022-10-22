@@ -10,7 +10,7 @@ grid-template-rows:
 250px
 250px;
 grid-template-areas: 
-"pokeApi . ."
+"pokeApi quizArea ."
 ". . ."
 }
 .hola{
@@ -18,7 +18,8 @@ grid-template-areas:
     text-align: center;
     font-family: 'Baloo 2', cursive; 
 }
- .pokeapi{
+
+.pokeapi{
 grid-area: pokeApi;
 background-color: greenyellow;
 font-family: 'Satisfy', cursive;
@@ -31,7 +32,7 @@ font-size: 2rem;
   justify-content: center;
   align-items: center;
   transition: all 0.5s ease-in-out;
-  box-shadow: 3px 3px 3px black ;
+  box-shadow: 6px 6px 6px black ;
  
 } 
 .pokeapi:hover{
@@ -42,4 +43,47 @@ background-repeat: no-repeat;
 font-size: xx-large;
 font-weight: 800;
 padding-top:6.2rem
+}
+
+.quiz{
+  grid-area: quizArea;
+  background-color: rgb(255, 0, 140);
+  font-family: 'Satisfy', cursive ;
+  font-size: 2rem;
+  color:whitesmoke;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 6px 6px 6px black ;
+ 
+} 
+.quiz:hover{
+background-image: url("https://res.cloudinary.com/ddtufnl04/image/upload/v1666441790/quiz_1_uirklm.png");
+background-size:80%;
+background-position: center;
+background-repeat: no-repeat;
+font-size: xx-large;
+font-weight: 800;
+padding-top:6.4rem
+}
+
+@media (max-width: 600px){
+  .menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 8rem
+    
+  }
+  .menu button{
+    height: 250px;
+    width: 250px;
+  }
+  body{
+    overflow: hidden;
+  }
 }

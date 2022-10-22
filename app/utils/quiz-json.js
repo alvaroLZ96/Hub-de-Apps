@@ -1,16 +1,16 @@
-export const questions = () => [
+export const quizQuestions = [
   {
     question: "In which Italian city can you find the Colosseum?",
     answers: {
-      Venice: false,
-      Rome: true,
-      Naples: false,
-      Milan: false,
+      "Venice city": false,
+      "Rome city": true,
+      "Naples city": false,
+      "Milan city": false,
     },
   },
 
   {
-    questions: "When did Lenin die?",
+    question: "When did Lenin die?",
     answers: {
       "21 January 1934": false,
       "21 January 1924": true,

@@ -11,12 +11,30 @@ export const pokemon = () => {
   app.appendChild(pokemonNav);
   pokemonNav.classList.add("pokemonNav");
   pokemonNav.innerHTML = `
+  
     <h1 class="pokemon-title">Bienvenido al Mundo Pokemon ${localStorage.name}!</h1>
     <img src="https://orig00.deviantart.net/aa74/f/2012/201/9/e/chibi_squirtle_by_o_melet-d580ex7.png" class="pokemon-img"></img>
-    <input type="text" class="searchbar"></input>
-    <input type="submit" value="🔎" class= "searchBtn">
-    <button class="filter1" >Grandes</button>
-    <button class="filter2" >Pequeños</button>
+  `;
+
+  const pokemonNav2 = document.createElement("div");
+  app.appendChild(pokemonNav2);
+  pokemonNav2.classList.add("pokemonNav2");
+  pokemonNav2.innerHTML = `
+  
+      <div class="searchDiv"> 
+            <input type="text" class="searchbar"></input>
+            <input type="submit" value="🔎" class= "searchBtn"></input>
+      </div>
+      <div class="btns-big-box">
+        <div class="btns-box">
+              <button class="btns filter1" ><span class="text">Grandes</span></button>
+            
+        </div>
+        <div class="btns-box">
+              
+              <button class="btns filter2" ><span class="text">Pequeños</span></button>
+        </div>
+      </div>
   `;
   const pokeCards = document.createElement("div");
   pokeCards.classList.add("pokemons");

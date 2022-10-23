@@ -23,8 +23,6 @@ export const initQuiz = () => {
   );
 };
 
-//<span class="score">0</span> si quisiera incluir el contador al principio
-
 const checkAnswer = (object, clave) => {
   if (pos == quizQuestions.length - 1) {
     const endDiv = document.createElement("div");

@@ -13,7 +13,7 @@ export const pokemon = () => {
   pokemonNav.classList.add("pokemonNav");
   pokemonNav.innerHTML = `
   
-    <h1 class="pokemon-title">Bienvenido al Mundo Pokemon ${localStorage.name}!</h1>
+    <h1 class="pokemon-title">Bienvenidx al Mundo Pokemon ${localStorage.name}!</h1>
     <img src="https://orig00.deviantart.net/aa74/f/2012/201/9/e/chibi_squirtle_by_o_melet-d580ex7.png" class="pokemon-img"></img>
   `;
 

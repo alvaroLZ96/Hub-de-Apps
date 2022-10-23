@@ -1,0 +1,13 @@
+.quizNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+.quizNav h1 {
+    display: block;
+    margin: auto;
+    font-size: 48px;
+    width: 25%;
+};

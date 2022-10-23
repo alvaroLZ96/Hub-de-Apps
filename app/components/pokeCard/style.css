@@ -42,3 +42,17 @@ height: 670px;
     bottom: 0;
     margin: auto;
 }
+.reloadBox{
+    display:flex;
+    justify-content: end;
+      
+}
+.reloadBtn {
+    font-family: 'Baloo 2', cursive; 
+    font-weight: 600;
+    margin-top: 1rem;
+    background-color: transparent;
+    border-radius: 20%;
+    box-shadow: 3px 3px 3px black;
+
+}

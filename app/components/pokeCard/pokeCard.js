@@ -1,3 +1,5 @@
+import { goToMenu } from "../../utils/menulauncher";
+import { reloadFunction } from "../../utils/reloadPage";
 import "./style.css";
 export const callPokemonCard = (pokemon) => {
   const divPrincipal = document.body.querySelector("#app");
@@ -18,5 +20,11 @@ export const callPokemonCard = (pokemon) => {
                     
             </div>
         </div>
-      </div> `);
+      </div> 
+      <div class="reloadBox">
+          <button class="reloadBtn">VOLVER</button>
+      </div>`);
+
+  goToMenu();
+  reloadFunction();
 };

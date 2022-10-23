@@ -1,3 +1,7 @@
+header{
+    display: flex;
+    gap: 1rem;
+}
 #themeBtn{
     margin-top: 1rem;
     background-color: transparent;

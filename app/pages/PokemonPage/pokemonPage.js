@@ -1,6 +1,7 @@
 import { cleanPage } from "../../utils/cleanPage";
 import { callPokemonCard } from "../../components/pokeCard/pokeCard";
 import "./style.css";
+import { goToMenu } from "../../utils/menulauncher";
 
 let mappedPokemons;
 
@@ -82,6 +83,7 @@ export const pokemon = () => {
       `;
       pokeDiv.addEventListener("click", () => callPokemonCard(pokemon));
     }
+    goToMenu();
   };
   //FUNCIÓN PARA EL INPUT DE AVERAGE
   const bigFunction = (mappedPokemons) => {

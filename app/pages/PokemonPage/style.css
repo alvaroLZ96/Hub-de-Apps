@@ -105,7 +105,7 @@ display: inline-flex;
     outline: 0;
    }
    .pokemonNav2 .btns-box .btns span {
-    background-color: #44bb58;
+    background-color: #00ff8ca1;
     padding: 10px 24px;
     border-radius: 30px;
     transition: 300ms;

@@ -1,5 +1,7 @@
+import "./style.css";
 import { quizQuestions } from "../../utils/quiz-json";
 import { cleanPage } from "../../utils/cleanPage";
+import { goToMenu } from "../../utils/menulauncher";
 
 let score = 0;
 let pos = 0;
@@ -7,9 +9,13 @@ let pos = 0;
 export const initQuiz = () => {
   const app = document.querySelector("#app");
   cleanPage(app);
-  app.innerHTML += `
-<h1>Welcome to Quiz</h1>
-<button id="startBtn">Start</button>
+  goToMenu();
+  const quizNav = document.createElement("div");
+  app.appendChild(quizNav);
+  quizNav.classList.add("quizNav");
+  quizNav.innerHTML += `
+    <h1>Welcome to Quiz</h1>
+    <button id="startBtn">Start</button>
 `;
   const startBtn = document.querySelector("#startBtn");
   startBtn.addEventListener("click", () =>
@@ -27,8 +33,8 @@ const checkAnswer = (object, clave) => {
     cleanPage(app);
     app.appendChild(endDiv);
     endDiv.innerHTML = `
-    <p>You're done, your total score is ${score} out of 10</p>
-    <button id="retakeBtn">Retake Quiz</button>
+    <p> ¡Terminaste! Tu puntuiación ha sido ${score} de 10</p>
+    <button id="retakeBtn">Volver a jugar</button>
     `;
     pos = 0;
     score = 0;

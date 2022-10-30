@@ -1,12 +1,12 @@
-.hangmanDiv{
+/* .hangmanDiv{
     background-image: url("https://res.cloudinary.com/ddtufnl04/image/upload/v1666563805/giphy_pmfph0.gif");
 height: 100vh;
 background-repeat: no-repeat;
 margin:10rem
 }
 
+ */
 
-/* 
 .gameDiv{
     width: 100%;
   margin: auto;
@@ -17,6 +17,8 @@ margin:10rem
 }
 .wordDiv{
     display: inline-flex; 
+    width: 500px;
+    height: 500px;
 }
 
 .notif-btn{
@@ -54,4 +56,6 @@ margin:10rem
     box-shadow: 3px 3px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
- */
+.hidden {
+    display: none;
+  }

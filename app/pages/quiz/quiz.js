@@ -1,5 +1,5 @@
 import "./style.css";
-import { quizQuestions } from "../../utils/quiz-json";
+import { quizQuestions } from "../../data/quiz-json";
 import { cleanPage } from "../../utils/cleanPage";
 import { goToMenu } from "../../utils/menulauncher";
 
@@ -31,7 +31,7 @@ const checkAnswer = (object, clave) => {
     cleanPage(app);
     app.appendChild(endDiv);
     endDiv.innerHTML = `
-    <p> ¡Terminaste! Tu puntuiación ha sido ${score} de 10</p>
+    <p> ¡Terminaste! Tu puntuación ha sido ${score} de 10</p>
     <button id="retakeBtn">Volver a jugar</button>
     `;
     pos = 0;

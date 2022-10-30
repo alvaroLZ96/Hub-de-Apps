@@ -9,7 +9,7 @@ export const initHangman = () => {
   const hangmanDiv = document.createElement("div");
   hangmanDiv.classList.add("hangmanDiv");
   app.appendChild(hangmanDiv);
-  /* hangmanDiv.innerHTML = `
+  hangmanDiv.innerHTML = `
 <div class="gameDiv">
         <h1>Bienvenidx al juego de El Ahorcado</h1>
         <h3>Elige una letra</h3>
@@ -40,6 +40,7 @@ export const initHangman = () => {
   const getRandomWord = (list) => {
     return list[Math.floor(Math.random() * words.length)];
   };
+
   let selectWord;
   let letters;
   let lives;
@@ -58,7 +59,7 @@ export const initHangman = () => {
       });
     }
 
-    selectWord = getRandomWord(word_list);
+    selectWord = getRandomWord(words);
     lives = 5;
     letters = document.querySelectorAll(".alphabet");
     liveSpan.textContent = lives;
@@ -69,8 +70,9 @@ export const initHangman = () => {
     }
   };
 
+  // initializing the page
   initGame("start");
-
+  // show notification
   const showNotif = (message) => {
     notifDiv.classList.remove("hidden");
     notifSpan.textContent = selectWord;
@@ -95,7 +97,6 @@ export const initHangman = () => {
         indexes.push(index);
       }
     });
-    console.log(indexes);
     return indexes;
   };
 
@@ -123,5 +124,15 @@ export const initHangman = () => {
       decreaseLife();
     }
     this.classList.add("disabled");
-  }; */
+  };
+  // listening to letter buttons presses
+  letters.forEach((btn) => {
+    btn.addEventListener("click", letterPress);
+  });
+
+  // listening to reset btn
+  resetButton.addEventListener("click", () => init("reset"));
+
+  // listening to play again button
+  playAgain.addEventListener("click", () => init("reset"));
 };

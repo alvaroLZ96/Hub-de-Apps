@@ -85,7 +85,7 @@ export const pokemon = () => {
     }
     goToMenu();
   };
-  //FUNCIÓN PARA EL INPUT DE AVERAGE
+
   const bigFunction = (mappedPokemons) => {
     cleanPage(pokeCards);
     const averagePokemons = (mappedPokemons) => {
@@ -104,7 +104,7 @@ export const pokemon = () => {
     printPokemon(mappedBigAverage);
   };
 
-  //FUNCIÓN PARA EL INPUT DE AVERAGE
+
   const smallFunction = (mappedPokemons) => {
     cleanPage(pokeCards);
     const averagePokemons = (mappedPokemons) => {
@@ -123,7 +123,8 @@ export const pokemon = () => {
     console.log(mappedSmallAverage);
     printPokemon(mappedSmallAverage);
   };
-  //FUNCIÓN PARA EL INPUT DE SEARCH
+
+  
   const searchFunction = (list, word) => {
     cleanPage(pokeCards);
     const filteredPokemons = list.filter(
@@ -133,9 +134,6 @@ export const pokemon = () => {
     printPokemon(filteredPokemons);
   };
 
-  /*  const searchInput = document.querySelector(".searchbar");
-  searchInput.addEventListener("input", (ev) =>
-    printPokemon(mappedPokemons, ev.target.value) */
 
   const inputSearch = document.querySelector(".searchBtn");
   inputSearch.addEventListener("click", () => {

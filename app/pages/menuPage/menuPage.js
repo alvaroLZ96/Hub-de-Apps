@@ -4,10 +4,6 @@ import { cleanPage } from "../../utils/cleanPage";
 import { initQuiz } from "../quiz/quiz";
 import { initHangman } from "../hangman/hangman";
 export const menuPage = () => {
-  /* const divLogin = document.createElement("div");
-  divLogin.setAttribute("id", "divLogin");
-  document.body.appendChild(divLogin);
-  cleanPage(divLogin); */
   const app = document.querySelector("#app");
   cleanPage(app);
   app.innerHTML = `

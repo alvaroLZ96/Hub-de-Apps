@@ -70,9 +70,7 @@ export const initHangman = () => {
     }
   };
 
-  // initializing the page
   initGame("start");
-  // show notification
   const showNotif = (message) => {
     notifDiv.classList.remove("hidden");
     notifSpan.textContent = selectWord;
@@ -87,8 +85,7 @@ export const initHangman = () => {
     }
   };
 
-  // get multiple matching indexes of pressed letter
-  // to the selected word------>ME CUESTA ENTENDER ESTO
+  
   const getindexes = (letter) => {
     let indexes = [];
     [...selectWord].forEach((val, i) => {
@@ -100,7 +97,6 @@ export const initHangman = () => {
     return indexes;
   };
 
-  // check if we get complete word
   const checkWord = () => {
     let val = true;
     for (let i = 0; i < wordDiv.children.length; i++) {
@@ -125,14 +121,11 @@ export const initHangman = () => {
     }
     this.classList.add("disabled");
   };
-  // listening to letter buttons presses
   letters.forEach((btn) => {
     btn.addEventListener("click", letterPress);
   });
 
-  // listening to reset btn
   resetButton.addEventListener("click", () => init("reset"));
 
-  // listening to play again button
   playAgain.addEventListener("click", () => init("reset"));
 };

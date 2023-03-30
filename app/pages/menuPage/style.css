@@ -1,16 +1,4 @@
  .menu{
-/* grid-gap:3rem;
-padding: 8rem;
-overflow: hidden;
-  display: grid;
-  grid-template-columns:  250px 250px 250px;
-grid-template-rows:
-250px
-250px;
-grid-template-areas: 
-"pokeApi quizArea hangman"
-". . ."
-} */
 display:flex;
 justify-content: center;
 align-items: center;
@@ -23,7 +11,6 @@ flex-wrap: wrap;}
 }
 
 .pokeapi{
-/* grid-area: pokeApi; */
 height: 250px;
 width: 250px;
 background-color: rgb(39, 221, 94);
@@ -52,7 +39,6 @@ padding-top:13rem
 }
 
 .quiz{
- /*  grid-area: quizArea; */
  height: 250px;
 width: 250px;
   background-color: rgb(255, 0, 140);
@@ -80,7 +66,6 @@ padding-top:13rem
 }
 
 .hangman{
-    /* grid-area: hangman; */
     height: 250px;
     width: 250px;
     background-color: rgb(0, 60, 255);

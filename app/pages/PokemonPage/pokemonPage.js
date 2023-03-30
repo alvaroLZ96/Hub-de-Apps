@@ -42,16 +42,14 @@ export const pokemon = () => {
   app.appendChild(pokeCards);
 
   const getPokemon = async () => {
-    let pokemonArray = [];
+    const promises = [];
     for (let i = 1; i < 151; i++) {
-      try {
-        const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
-        const dataJSON = await data.json();
-        pokemonArray.push(dataJSON);
-      } catch (error) {
-        console.log("Error:");
-      }
+      const promise = fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`).then(
+        (response) => response.json()
+      );
+      promises.push(promise);
     }
+    const pokemonArray = await Promise.all(promises);
     transformData(pokemonArray);
   };
 
